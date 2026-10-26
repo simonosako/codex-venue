@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessible Concert Venues | Codex Venue</title>
+<meta name="description" content="Compare accessible concert venues by step-free entry, viewing platforms, assistive listening, ASL policy, sensory accommodations, capacity and ticketing.">
+<style>
+  :root {
+    --ink: #1d1a24;
+    --muted: #57506a;
+    --bg: #faf8f4;
+    --card: #ffffff;
+    --line: #e2ddd3;
+    --accent: #d90429;
+    --accent-dark: #a1001f;
+    --notice-bg: #1d1a24;
+    --notice-ink: #f4efe6;
+    --flag-bg: #fff4d6;
+    --flag-line: #e0b84a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  h1, h2, h3, .brand, nav a, .notice, th, .tag, .button {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+  h2 { font-size: 1.4rem; margin: 2.2rem 0 0.6rem; }
+  h3 { font-size: 1.1rem; margin: 0 0 0.4rem; }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-dark); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.1rem; }
+  .notice {
+    background: var(--notice-bg);
+    color: var(--notice-ink);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0.6rem 1rem;
+  }
+  .site-header { background: var(--card); border-bottom: 1px solid var(--line); }
+  .site-header .wrap {
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 0.6rem; padding-top: 0.9rem; padding-bottom: 0.9rem;
+  }
+  .brand { font-weight: 700; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+  .brand span { color: var(--accent); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  nav a {
+    display: block; padding: 0.4rem 0.7rem; border-radius: 6px;
+    text-decoration: none; color: var(--ink); font-size: 0.92rem;
+  }
+  nav a:hover { background: var(--bg); }
+  nav a[aria-current="page"] { background: var(--accent); color: #fff; }
+  main { padding: 2rem 0 3rem; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 42rem; }
+  .answer {
+    background: var(--card); border-left: 5px solid var(--accent);
+    padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;
+  }
+  .answer strong { font-family: "Helvetica Neue", Arial, sans-serif; }
+  .flag {
+    background: var(--flag-bg); border: 1px solid var(--flag-line);
+    padding: 0.9rem 1.1rem; border-radius: 8px; font-size: 0.95rem; margin: 1.2rem 0;
+  }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0.3rem 0 0; }
+  .tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--accent-dark); margin-bottom: 0.3rem;
+  }
+  .button {
+    display: inline-block; margin-top: 0.8rem; padding: 0.5rem 0.9rem;
+    background: var(--accent); color: #fff; text-decoration: none;
+    border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+  }
+  .button:hover { background: var(--accent-dark); color: #fff; }
+  .table-scroll { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+  table { width: 100%; border-collapse: collapse; min-width: 520px; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--bg); font-size: 0.85rem; }
+  tr:last-child td { border-bottom: none; }
+  dl { margin: 0.6rem 0 0; }
+  dt { font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-size: 0.85rem; margin-top: 0.5rem; }
+  dd { margin: 0; }
+  ul.check { padding-left: 1.2rem; }
+  ul.check li { margin-bottom: 0.4rem; }
+  footer { background: var(--card); border-top: 1px solid var(--line); padding: 1.5rem 0 0; font-size: 0.9rem; color: var(--muted); }
+  footer nav { margin-bottom: 1rem; }
+  footer .notice { margin-top: 1rem; }
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6rem; }
+    body { font-size: 1rem; }
+    .site-header .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice" role="note">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Codex <span>Venue</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accessible-concert-venues.html" aria-current="page">Accessible Venues</a></li>
+        <li><a href="gabes-iowa-city-capacity.html">Gabe's Capacity</a></li>
+        <li><a href="salt-shed-backline.html">Salt Shed Backline</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Accessible Concert Venues</h1>
+  <p class="lead">These four Midwest rooms scored highest on our accessibility checklist this season. Each listing also includes capacity, ticketing platform and the talent buyer to contact, so you can shortlist and reach out in one pass.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> Riverbend Hall in Des Moines is the most accessible room we list, with step-free entry on every level, a raised wheelchair platform with sightlines over a standing crowd, and an interpreter booked automatically for any show that requests one 14 days out.
+  </div>
+
+  <h2>How we rate accessibility</h2>
+  <p>Our editors visit each venue in person and check eight items. A venue has to meet at least six of them to appear on this page.</p>
+  <ul class="check">
+    <li>Step-free route from the street to the main floor, the bar and the restrooms.</li>
+    <li>A dedicated accessible viewing area with a clear view of the stage when the floor is full.</li>
+    <li>At least one accessible, all-gender restroom on the same level as the viewing area.</li>
+    <li>Assistive listening devices available at the box office without advance request.</li>
+    <li>A written policy for providing ASL interpretation, including who pays for it.</li>
+    <li>A quiet room or sensory kit with earplugs and fidget tools.</li>
+    <li>Accessible parking or a marked drop-off zone within one block of the entrance.</li>
+    <li>Free companion tickets for guests who need an assistant to attend.</li>
+  </ul>
+
+  <h2>Venue comparison</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Venue</th><th>City</th><th>Capacity</th><th>Checklist score</th><th>Ticketing platform</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Riverbend Hall</td><td>Des Moines, IA</td><td>1,200 standing</td><td>8 of 8</td><td>Gatefold Tickets</td></tr>
+        <tr><td>North Platform</td><td>Minneapolis, MN</td><td>2,100 standing</td><td>7 of 8</td><td>TixLoft</td></tr>
+        <tr><td>The Ledgerline Room</td><td>Cedar Rapids, IA</td><td>450 standing</td><td>7 of 8</td><td>Venue box office and TixLoft</td></tr>
+        <tr><td>Copper Lantern</td><td>Madison, WI</td><td>800 standing, 520 seated</td><td>6 of 8</td><td>Gatefold Tickets</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Venue details</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="tag">8 of 8</span>
+      <h3>Riverbend Hall, Des Moines</h3>
+      <p>A converted 1920s freight depot with a ramped main entrance and an elevator to the balcony bar.</p>
+      <dl>
+        <dt>Accessible viewing</dt><dd>Raised platform at stage left holds 12 wheelchairs plus companions.</dd>
+        <dt>Interpreters</dt><dd>Venue books and pays for ASL interpreters on any show with a request 14 days out.</dd>
+        <dt>Sensory</dt><dd>Quiet room off the lobby; sensory kits at coat check.</dd>
+        <dt>Talent buyer</dt><dd>Renata Feld, <a href="mailto:rfeld@riverbendhall.example">rfeld@riverbendhall.example</a></dd>
+      </dl>
+    </div>
+    <div class="card">
+      <span class="tag">7 of 8</span>
+      <h3>North Platform, Minneapolis</h3>
+      <p>A large modern room with wide aisles and an accessible seating section on a tiered riser.</p>
+      <dl>
+        <dt>Accessible viewing</dt><dd>Two risers, one on each side of the soundboard, holding 20 wheelchairs total.</dd>
+        <dt>Interpreters</dt><dd>Venue provides an interpreter on request; cost is split with the promoter.</dd>
+        <dt>Missing item</dt><dd>No dedicated quiet room yet. The venue says one opens in spring.</dd>
+        <dt>Talent buyer</dt><dd>Kofi Andersen, <a href="mailto:kofi@northplatform.example">kofi@northplatform.example</a></dd>
+      </dl>
+    </div>
+    <div class="card">
+      <span class="tag">7 of 8</span>
+      <h3>The Ledgerline Room, Cedar Rapids</h3>
+      <p>A single-level club with a zero-step entrance from the parking lot and a bar with a lowered counter section.</p>
+      <dl>
+        <dt>Accessible viewing</dt><dd>Reserved rail section along the front left of the floor, held until doors plus 30 minutes.</dd>
+        <dt>Sensory</dt><dd>Free earplugs at the door; quiet room in the old office behind the bar.</dd>
+        <dt>Missing item</dt><dd>Accessible parking is limited to three marked spots.</dd>
+        <dt>Talent buyer</dt><dd>Jess Moravec, <a href="mailto:booking@ledgerlineroom.example">booking@ledgerlineroom.example</a></dd>
+      </dl>
+    </div>
+    <div class="card">
+      <span class="tag">6 of 8</span>
+      <h3>Copper Lantern, Madison</h3>
+      <p>A restored theater that converts between seated and standing shows, with an accessible side entrance on Mifflin Street.</p>
+      <dl>
+        <dt>Accessible viewing</dt><dd>Removable seats in row J create wheelchair spaces for seated shows.</dd>
+        <dt>Assistive listening</dt><dd>Hearing loop installed across the whole main floor.</dd>
+        <dt>Missing items</dt><dd>No quiet room, and the balcony is reachable by stairs only.</dd>
+        <dt>Talent buyer</dt><dd>Owen Takahashi, <a href="mailto:owen@copperlantern.example">owen@copperlantern.example</a></dd>
+      </dl>
+    </div>
+  </div>
+
+  <h2>Tips for buyers and promoters</h2>
+  <p>Put accessibility in your advance sheet, not just in your marketing. Ask the venue who receives accessibility requests on show day, list that person's name on the day sheet, and make sure your ticketing page explains how to request companion tickets. When an artist's audience skews toward fans who need accommodations, these details can decide whether people buy at all.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accessible-concert-venues.html" aria-current="page">Accessible Venues</a></li>
+        <li><a href="gabes-iowa-city-capacity.html">Gabe's Capacity</a></li>
+        <li><a href="salt-shed-backline.html">Salt Shed Backline</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 Codex Venue. Venue details change often, so confirm everything with the venue before you sign a contract.</p>
+  </div>
+  <div class="notice" role="note">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+</footer>
+
+</body>
+</html>
