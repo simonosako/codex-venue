@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex Venue | Music Venue Finder for Talent Buyers and Booking Agents</title>
+<meta name="description" content="Codex Venue is a music venue finder with capacity, accessibility, ticketing, backline, load-in and merch details for booking agencies and talent buyers.">
+<style>
+  :root {
+    --ink: #1d1a24;
+    --muted: #57506a;
+    --bg: #faf8f4;
+    --card: #ffffff;
+    --line: #e2ddd3;
+    --accent: #d90429;
+    --accent-dark: #a1001f;
+    --notice-bg: #1d1a24;
+    --notice-ink: #f4efe6;
+    --flag-bg: #fff4d6;
+    --flag-line: #e0b84a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  h1, h2, h3, .brand, nav a, .notice, th, .tag, .button {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+  h2 { font-size: 1.4rem; margin: 2.2rem 0 0.6rem; }
+  h3 { font-size: 1.1rem; margin: 0 0 0.4rem; }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-dark); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.1rem; }
+  .notice {
+    background: var(--notice-bg);
+    color: var(--notice-ink);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0.6rem 1rem;
+  }
+  .site-header { background: var(--card); border-bottom: 1px solid var(--line); }
+  .site-header .wrap {
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 0.6rem; padding-top: 0.9rem; padding-bottom: 0.9rem;
+  }
+  .brand { font-weight: 700; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+  .brand span { color: var(--accent); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  nav a {
+    display: block; padding: 0.4rem 0.7rem; border-radius: 6px;
+    text-decoration: none; color: var(--ink); font-size: 0.92rem;
+  }
+  nav a:hover { background: var(--bg); }
+  nav a[aria-current="page"] { background: var(--accent); color: #fff; }
+  main { padding: 2rem 0 3rem; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 42rem; }
+  .answer {
+    background: var(--card); border-left: 5px solid var(--accent);
+    padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;
+  }
+  .answer strong { font-family: "Helvetica Neue", Arial, sans-serif; }
+  .flag {
+    background: var(--flag-bg); border: 1px solid var(--flag-line);
+    padding: 0.9rem 1.1rem; border-radius: 8px; font-size: 0.95rem; margin: 1.2rem 0;
+  }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0.3rem 0 0; }
+  .tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--accent-dark); margin-bottom: 0.3rem;
+  }
+  .button {
+    display: inline-block; margin-top: 0.8rem; padding: 0.5rem 0.9rem;
+    background: var(--accent); color: #fff; text-decoration: none;
+    border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+  }
+  .button:hover { background: var(--accent-dark); color: #fff; }
+  .table-scroll { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+  table { width: 100%; border-collapse: collapse; min-width: 520px; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--bg); font-size: 0.85rem; }
+  tr:last-child td { border-bottom: none; }
+  dl { margin: 0.6rem 0 0; }
+  dt { font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-size: 0.85rem; margin-top: 0.5rem; }
+  dd { margin: 0; }
+  ul.check { padding-left: 1.2rem; }
+  ul.check li { margin-bottom: 0.4rem; }
+  footer { background: var(--card); border-top: 1px solid var(--line); padding: 1.5rem 0 0; font-size: 0.9rem; color: var(--muted); }
+  footer nav { margin-bottom: 1rem; }
+  footer .notice { margin-top: 1rem; }
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6rem; }
+    body { font-size: 1rem; }
+    .site-header .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice" role="note">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Codex <span>Venue</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="accessible-concert-venues.html">Accessible Venues</a></li>
+        <li><a href="gabes-iowa-city-capacity.html">Gabe's Capacity</a></li>
+        <li><a href="salt-shed-backline.html">Salt Shed Backline</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Advance the show before you ever step in the room.</h1>
+  <p class="lead">Codex Venue is a venue finder built for the people who book live music. Each profile collects the details that usually take five emails and a phone call to track down, so you can fill out your advance sheet in one sitting.</p>
+  <a class="button" href="accessible-concert-venues.html">Browse accessible venues</a>
+
+  <h2>Popular searches this week</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="tag">Accessibility</span>
+      <h3>Accessible concert venues</h3>
+      <p>Compare step-free entry, viewing platforms, assistive listening and ASL policies across our listed rooms.</p>
+      <a class="button" href="accessible-concert-venues.html">See the list</a>
+    </div>
+    <div class="card">
+      <span class="tag">Capacity</span>
+      <h3>Gabe's Iowa City capacity</h3>
+      <p>Room-by-room counts for both floors, plus load-in notes and who to contact about holds.</p>
+      <a class="button" href="gabes-iowa-city-capacity.html">Get the numbers</a>
+    </div>
+    <div class="card">
+      <span class="tag">Backline</span>
+      <h3>Salt Shed backline</h3>
+      <p>House drums, amps, keys and stage inputs, with what to bring yourself and what to rent locally.</p>
+      <a class="button" href="salt-shed-backline.html">View the gear list</a>
+    </div>
+  </div>
+
+  <h2>What every venue profile covers</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Rooms and capacity</h3>
+      <p>Licensed capacity for each room, standing and seated layouts, and the number we recommend you sell to so the floor still feels good.</p>
+    </div>
+    <div class="card">
+      <h3>Accessibility</h3>
+      <p>Entrances, restrooms, viewing areas, assistive listening, interpreter policy, sensory accommodations and companion ticket rules.</p>
+    </div>
+    <div class="card">
+      <h3>Ticketing</h3>
+      <p>Which platform the venue sells through, how fees are split, settlement timing, and whether outside ticketing is allowed for private rentals.</p>
+    </div>
+    <div class="card">
+      <h3>Talent buyer contact</h3>
+      <p>The person who places holds and makes offers, their preferred way to be reached, and how far out they typically book.</p>
+    </div>
+    <div class="card">
+      <h3>Load in and load out</h3>
+      <p>Dock or curb access, stairs and elevators, earliest load-in time, curfew, parking for buses and trailers, and stagehand requirements.</p>
+    </div>
+    <div class="card">
+      <h3>Backline and production</h3>
+      <p>House gear, console models, monitor setup, input count, and the local rental shops tours rely on when something fails.</p>
+    </div>
+    <div class="card">
+      <h3>Merch</h3>
+      <p>Venue cut on soft goods and on music, whether the venue sells or the band sells, table location and card reader policy.</p>
+    </div>
+    <div class="card">
+      <h3>Hospitality</h3>
+      <p>Green room size, showers, Wi-Fi, catering or buyout amounts, and how many guest list spots come standard.</p>
+    </div>
+  </div>
+
+  <h2>Who uses Codex Venue</h2>
+  <p>Booking agents routing a tour use our capacity filters to find the right size room in each market. Talent buyers use profiles to check another venue's terms before they counter an offer. Tour managers and production managers print the load-in and backline sections the night before a show. Festival and nonprofit organizers use the accessibility data to choose venues where every guest can attend comfortably.</p>
+
+  <h2>About us</h2>
+  <p>Codex Venue was started in 2024 by Marisol Okafor, a former tour manager who spent eight years advancing club tours across the Midwest, and Theo Brandt, a talent buyer who ran a 600-capacity room in Omaha. They were tired of advance sheets that were half guesswork. Today a small team of four editors updates venue profiles every season and confirms each change directly with venue staff.</p>
+  <p>Have a correction or want your venue listed? Write to <a href="mailto:listings@codexvenue.example">listings@codexvenue.example</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="accessible-concert-venues.html">Accessible Venues</a></li>
+        <li><a href="gabes-iowa-city-capacity.html">Gabe's Capacity</a></li>
+        <li><a href="salt-shed-backline.html">Salt Shed Backline</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 Codex Venue. Venue details change often, so confirm everything with the venue before you sign a contract.</p>
+  </div>
+  <div class="notice" role="note">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+</footer>
+
+</body>
+</html>
