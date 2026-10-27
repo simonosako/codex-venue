@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venue Capacity: What the Numbers Mean and How Many Tickets to Sell | Codex Venue</title>
+<meta name="description" content="Understand music venue capacity, from licensed occupancy to sellable tickets, and learn how to calculate how many tickets to put on sale for any room.">
+<style>
+  :root {
+    --ink: #1d1a24;
+    --muted: #57506a;
+    --bg: #faf8f4;
+    --card: #ffffff;
+    --line: #e2ddd3;
+    --accent: #d90429;
+    --accent-dark: #a1001f;
+    --notice-bg: #1d1a24;
+    --notice-ink: #f4efe6;
+    --flag-bg: #fff4d6;
+    --flag-line: #e0b84a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  h1, h2, h3, .brand, nav a, .notice, th, .tag, .button {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
+  h2 { font-size: 1.4rem; margin: 2.2rem 0 0.6rem; }
+  h3 { font-size: 1.1rem; margin: 0 0 0.4rem; }
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-dark); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.1rem; }
+  .notice {
+    background: var(--notice-bg);
+    color: var(--notice-ink);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0.6rem 1rem;
+  }
+  .site-header { background: var(--card); border-bottom: 1px solid var(--line); }
+  .site-header .wrap {
+    display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 0.6rem; padding-top: 0.9rem; padding-bottom: 0.9rem;
+  }
+  .brand { font-weight: 700; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+  .brand span { color: var(--accent); }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  nav a {
+    display: block; padding: 0.4rem 0.7rem; border-radius: 6px;
+    text-decoration: none; color: var(--ink); font-size: 0.92rem;
+  }
+  nav a:hover { background: var(--bg); }
+  nav a[aria-current="page"] { background: var(--accent); color: #fff; }
+  main { padding: 2rem 0 3rem; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 42rem; }
+  .answer {
+    background: var(--card); border-left: 5px solid var(--accent);
+    padding: 1rem 1.2rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;
+  }
+  .answer strong { font-family: "Helvetica Neue", Arial, sans-serif; }
+  .flag {
+    background: var(--flag-bg); border: 1px solid var(--flag-line);
+    padding: 0.9rem 1.1rem; border-radius: 8px; font-size: 0.95rem; margin: 1.2rem 0;
+  }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.1rem 1.2rem;
+  }
+  .card p { margin: 0.3rem 0 0; }
+  .tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--accent-dark); margin-bottom: 0.3rem;
+  }
+  .button {
+    display: inline-block; margin-top: 0.8rem; padding: 0.5rem 0.9rem;
+    background: var(--accent); color: #fff; text-decoration: none;
+    border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+  }
+  .button:hover { background: var(--accent-dark); color: #fff; }
+  .table-scroll { overflow-x: auto; margin: 1rem 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+  table { width: 100%; border-collapse: collapse; min-width: 520px; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--bg); font-size: 0.85rem; }
+  tr:last-child td { border-bottom: none; }
+  dl { margin: 0.6rem 0 0; }
+  dt { font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-size: 0.85rem; margin-top: 0.5rem; }
+  dd { margin: 0; }
+  ul.check { padding-left: 1.2rem; }
+  ul.check li { margin-bottom: 0.4rem; }
+  footer { background: var(--card); border-top: 1px solid var(--line); padding: 1.5rem 0 0; font-size: 0.9rem; color: var(--muted); }
+  footer nav { margin-bottom: 1rem; }
+  footer .notice { margin-top: 1rem; }
+  @media (max-width: 600px) {
+    h1 { font-size: 1.6rem; }
+    body { font-size: 1rem; }
+    .site-header .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="notice" role="note">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Codex <span>Venue</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accessible-concert-venues.html">Accessible Venues</a></li>
+        <li><a href="venue-capacity.html" aria-current="page">Venue Capacity</a></li>
+        <li><a href="venue-backline.html">Venue Backline</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Venue Capacity: What the Numbers Mean</h1>
+  <p class="lead">Every venue profile on Codex Venue lists more than one capacity figure, because the number on the fire marshal's sign is rarely the number of tickets you should sell. This guide explains each figure and shows you how to work out a sellable count for any room.</p>
+
+  <div class="answer">
+    <strong>Quick answer:</strong> A venue's licensed capacity is the most people the room may legally hold, including staff and performers. The number of tickets you put on sale is usually 10 to 20 percent lower once you account for crew, guest list, holds and how the room is set up that night.
+  </div>
+
+  <h2>The five capacity numbers you will see</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="tag">Legal limit</span>
+      <h3>Licensed occupancy</h3>
+      <p>The maximum set by the local fire authority and posted in the room. It covers everyone inside, including bartenders, security, crew and the band.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Layout</span>
+      <h3>Standing capacity</h3>
+      <p>How many guests fit with an open floor and no chairs. This is the figure most club and general admission shows are booked against.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Layout</span>
+      <h3>Seated capacity</h3>
+      <p>How many guests fit with chairs or tables set. Expect it to be 30 to 50 percent lower than standing in the same room.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Sales</span>
+      <h3>Sellable capacity</h3>
+      <p>The number of tickets the venue allows on sale after removing staff, comps and holds. Talent buyers sometimes call this the ticket manifest.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Experience</span>
+      <h3>Comfortable capacity</h3>
+      <p>The crowd size where fans can still reach the bar and restrooms without fighting through the room. Our editors list this as the "recommended sell" on each profile.</p>
+    </div>
+  </div>
+
+  <h2>What shrinks a room's real capacity</h2>
+  <ul class="check">
+    <li><strong>Production footprint.</strong> A larger stage, a drum riser, a front-of-house platform or a lighting tower can each remove dozens of standing spots. Our <a href="venue-backline.html">venue backline guide</a> covers how touring gear affects stage space.</li>
+    <li><strong>Barricades.</strong> A barricade and photo pit push the crowd back from the stage and reduce floor space.</li>
+    <li><strong>All-ages shows.</strong> Roping off a bar area or adding a wristband zone usually cuts sellable capacity by around 10 percent.</li>
+    <li><strong>Accessible viewing areas.</strong> Reserved platforms and companion space are required at many venues, so subtract them before you set your ticket count. See our <a href="accessible-concert-venues.html">accessible concert venues</a> list for examples.</li>
+    <li><strong>Merch and VIP areas.</strong> Merch tables, meet-and-greet lines and VIP sections all occupy floor space.</li>
+    <li><strong>Weather.</strong> Outdoor stages may lower their limits when part of the grounds is closed for rain or heat.</li>
+  </ul>
+
+  <h2>How to calculate how many tickets to sell</h2>
+  <p>Start with the standing or seated capacity for the layout you are using, then subtract each of the following. Here is a worked example for a 450-capacity club.</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Step</th><th>What to subtract</th><th>Example</th><th>Running total</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Start with standing capacity for tonight's layout</td><td>Open floor</td><td>450</td></tr>
+        <tr><td>2</td><td>Venue staff, security and crew working inside</td><td>18 people</td><td>432</td></tr>
+        <tr><td>3</td><td>Performers and touring party on every act</td><td>14 people</td><td>418</td></tr>
+        <tr><td>4</td><td>Guest list and comps from artists and venue</td><td>30 spots</td><td>388</td></tr>
+        <tr><td>5</td><td>Production holds (riser, front-of-house, barricade)</td><td>20 spots</td><td>368</td></tr>
+        <tr><td>6</td><td>Sell to comfortable capacity, not to the limit</td><td>About 5 percent buffer</td><td>350 tickets</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Agree on this number with the venue in writing before tickets go on sale. Some venues count guest list against licensed occupancy and others count it separately, and the difference can decide whether a show is a sellout or a capacity violation.</p>
+
+  <div class="flag" role="note">
+    <strong>Rules vary by location:</strong> Occupancy limits, and what counts toward them, are set by local fire and building codes. Always confirm the current posted capacity and any show-specific limits with the venue's production manager.
+  </div>
+
+  <h2>Venue size tiers</h2>
+  <p>Booking agents usually route tours by room size. These are the tiers Codex Venue uses in its search filters.</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Tier</th><th>Standing capacity</th><th>Typical acts</th><th>What changes at this size</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Club</td><td>Under 500</td><td>Developing artists, local bills, early tours</td><td>House sound engineer and basic backline are common; settlement is often night of show.</td></tr>
+        <tr><td>Mid-size room</td><td>500 to 1,500</td><td>Artists with a proven draw in the market</td><td>Barricades, ticketing fees and merch cuts become standard terms in the offer.</td></tr>
+        <tr><td>Theater</td><td>1,500 to 3,000</td><td>Established touring acts, seated comedy and spoken word</td><td>Seated and standing layouts differ sharply; union crew rules often apply.</td></tr>
+        <tr><td>Large room</td><td>3,000 to 6,000</td><td>Headliners on major tours</td><td>Touring production, bus and trailer parking, and advance deadlines become critical.</td></tr>
+        <tr><td>Amphitheater or arena</td><td>Over 6,000</td><td>Top-selling artists and festivals</td><td>Capacity changes by stage configuration, and seating maps are built show by show.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Compare capacities across our listings</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>Venue</th><th>City</th><th>Standing</th><th>Seated</th><th>Recommended sell</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>The Ledgerline Room</td><td>Cedar Rapids, IA</td><td>450</td><td>Not offered</td><td>350</td></tr>
+        <tr><td>Copper Lantern</td><td>Madison, WI</td><td>800</td><td>520</td><td>700 standing, 500 seated</td></tr>
+        <tr><td>Riverbend Hall</td><td>Des Moines, IA</td><td>1,200</td><td>Not offered</td><td>1,050</td></tr>
+        <tr><td>North Platform</td><td>Minneapolis, MN</td><td>2,100</td><td>1,400</td><td>1,850 standing, 1,350 seated</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Capacity questions to put in your advance</h2>
+  <ul class="check">
+    <li>What is the posted licensed occupancy, and does it include staff and performers?</li>
+    <li>What is the sellable capacity for this show's layout and age restriction?</li>
+    <li>Does guest list count against sellable capacity?</li>
+    <li>How many spots does the production footprint remove?</li>
+    <li>How many accessible viewing spaces and companion spots are reserved?</li>
+    <li>Who at the venue has final say on capacity on show day?</li>
+  </ul>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accessible-concert-venues.html">Accessible Venues</a></li>
+        <li><a href="venue-capacity.html" aria-current="page">Venue Capacity</a></li>
+        <li><a href="venue-backline.html">Venue Backline</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 Codex Venue. Venue details change often, so confirm everything with the venue before you sign a contract.</p>
+  </div>
+  <div class="notice" role="note">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</div>
+</footer>
+
+</body>
+</html>
