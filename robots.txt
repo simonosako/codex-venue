@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://simonosako.github.io/codex-venue/sitemap.xml
