@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accessible Concert Venues | Codex Venue</title>
-<meta name="description" content="Compare accessible concert venues by step-free entry, viewing platforms, assistive listening, ASL policy, sensory accommodations, capacity and ticketing.">
+<meta name="description" content="Compare accessible concert venues by step-free entry, accessible seating, assistive listening, ASL and captioning policy, with real venue details and photos.">
 <style>
   :root {
     --ink: #1d1a24;
@@ -29,7 +29,7 @@
     color: var(--ink);
     background: var(--bg);
   }
-  h1, h2, h3, .brand, nav a, .notice, th, .tag, .button {
+  h1, h2, h3, .brand, nav a, .notice, th, .tag, .button, figcaption {
     font-family: "Helvetica Neue", Arial, sans-serif;
   }
   h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.5rem; }
@@ -96,6 +96,25 @@
   dd { margin: 0; }
   ul.check { padding-left: 1.2rem; }
   ul.check li { margin-bottom: 0.4rem; }
+
+  /* Real venue cards with photos (used on this page only) */
+  .venue-grid { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .venue-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; overflow: hidden; display: flex; flex-direction: column;
+  }
+  .venue-card figure { margin: 0; }
+  .venue-card img {
+    display: block; width: 100%; max-width: 100%;
+    aspect-ratio: 16 / 10; object-fit: cover; background: var(--line);
+  }
+  .venue-card figcaption {
+    font-size: 0.78rem; color: var(--muted);
+    padding: 0.45rem 1.2rem; border-bottom: 1px solid var(--line); background: var(--bg);
+  }
+  .venue-body { padding: 1rem 1.2rem 1.2rem; }
+  .venue-body .address { font-size: 0.92rem; color: var(--muted); margin: 0 0 0.3rem; }
+
   footer { background: var(--card); border-top: 1px solid var(--line); padding: 1.5rem 0 0; font-size: 0.9rem; color: var(--muted); }
   footer nav { margin-bottom: 1rem; }
   footer .notice { margin-top: 1rem; }
@@ -126,14 +145,14 @@
 
 <main class="wrap">
   <h1>Accessible Concert Venues</h1>
-  <p class="lead">These four Midwest rooms scored highest on our accessibility checklist this season. Each listing also includes capacity, ticketing platform and the talent buyer to contact, so you can shortlist and reach out in one pass.</p>
+  <p class="lead">Accessibility details decide whether every fan can attend a show, and they belong in your advance sheet. This page highlights real venues that publish clear accessibility information, followed by our sample profiles, so you can see exactly what to ask any room before you book it.</p>
 
   <div class="answer">
-    <strong>Quick answer:</strong> Riverbend Hall in Des Moines is the most accessible room we list, with step-free entry on every level, a raised wheelchair platform with sightlines over a standing crowd, and an interpreter booked automatically for any show that requests one 14 days out.
+    <strong>Quick answer:</strong> Start with venues that publish specific, detailed accessibility pages. The Englert Theatre in Iowa City lists the exact rows and seat numbers for its wheelchair and transfer seating, and the Auditorium Theatre in Chicago takes requests for ASL interpretation, captioning and audio description when you buy tickets.
   </div>
 
-  <h2>How we rate accessibility</h2>
-  <p>Our editors visit each venue in person and check eight items. A venue has to meet at least six of them to appear on this page.</p>
+  <h2>What we look for</h2>
+  <p>Whether a venue is real or one of our sample profiles, these are the eight items our editors check. The more of them a venue clearly explains, the easier it is to advance a show there.</p>
   <ul class="check">
     <li>Step-free route from the street to the main floor, the bar and the restrooms.</li>
     <li>A dedicated accessible viewing area with a clear view of the stage when the floor is full.</li>
@@ -145,7 +164,63 @@
     <li>Free companion tickets for guests who need an assistant to attend.</li>
   </ul>
 
-  <h2>Venue comparison</h2>
+  <h2>Real venues: what they publish</h2>
+  <p>These summaries come from each venue's own public accessibility information. Codex Venue has not visited or scored these venues and is not affiliated with them.</p>
+
+  <div class="flag" role="note">
+    <strong>Check before you book:</strong> Venue policies, seating and contacts change. The details below were summarized from each venue's website in October 2026. Always confirm with the venue directly before making plans or putting details in an advance sheet.
+  </div>
+
+  <div class="venue-grid">
+    <article class="venue-card">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Englert_Theatre_07_2010.JPG?width=800"
+             alt="The historic brick facade of the Englert Theatre on Washington Street in downtown Iowa City, with its marquee above the entrance."
+             loading="lazy">
+        <figcaption>Englert Theatre, 2010. Photo via <a href="https://commons.wikimedia.org/wiki/File:Englert_Theatre_07_2010.JPG">Wikimedia Commons</a>; see the file page for photographer and license.</figcaption>
+      </figure>
+      <div class="venue-body">
+        <span class="tag">Iowa City, IA</span>
+        <h3>The Englert Theatre</h3>
+        <p class="address">221 E Washington Street · Historic theater with about 725 seats</p>
+        <dl>
+          <dt>Entrance</dt><dd>The main entrance is at street level on Washington Street, through two wide double doors and one single door that open outward.</dd>
+          <dt>Wheelchair and accessible seats</dt><dd>Main floor, row U, seats 1 through 10.</dd>
+          <dt>Transfer seats</dt><dd>Main floor seats E19–22 and F19–22, plus balcony seats C101–102 and C111–112.</dd>
+          <dt>Getting around inside</dt><dd>A house wheelchair is available from the house managers for moving through the building, and volunteer ushers staff the entrances at the venue's own events. The balcony and lounge are on the second floor.</dd>
+          <dt>Transit</dt><dd>Iowa City Transit routes 1, 2 and 9 stop at Washington and Linn, about 100 feet from the door.</dd>
+          <dt>Ticketing</dt><dd>Sold through the venue's AudienceView box office.</dd>
+          <dt>Contact</dt><dd>(319) 688-2653 or <a href="mailto:info@englert.org">info@englert.org</a></dd>
+        </dl>
+        <a class="button" href="https://englert.org/visit">Venue visitor information</a>
+      </div>
+    </article>
+
+    <article class="venue-card">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chicago_Auditorium_Building,_interior_from_balcony.jpg?width=800"
+             alt="Historic black-and-white photograph of the Auditorium Theatre's ornate arched interior and stage, taken from the balcony."
+             loading="lazy">
+        <figcaption>Auditorium Theatre interior from the balcony, historic photograph. Historic American Buildings Survey, public domain, via <a href="https://commons.wikimedia.org/wiki/File:Chicago_Auditorium_Building,_interior_from_balcony.jpg">Wikimedia Commons</a>.</figcaption>
+      </figure>
+      <div class="venue-body">
+        <span class="tag">Chicago, IL</span>
+        <h3>Auditorium Theatre</h3>
+        <p class="address">50 E Ida B. Wells Drive · Landmark theater in the Auditorium Building</p>
+        <dl>
+          <dt>Entrance</dt><dd>The glass main doors involve three steps up to the lobby. A separate entrance offers ramp access with no steps; ask staff which door to use.</dd>
+          <dt>Seating</dt><dd>Nearly every seat involves steps in the lobby or the house, so ask Ticket Services about step-free seating before you buy.</dd>
+          <dt>ASL, captioning and audio description</dt><dd>Request at the time of ticket purchase.</dd>
+          <dt>Assistive listening</dt><dd>Free infrared listening devices from the coat check, first come, first served, with a photo ID held as a deposit.</dd>
+          <dt>Contact</dt><dd>Ticket Services Center, 312-341-2300</dd>
+        </dl>
+        <a class="button" href="https://auditoriumtheatre.org/accessibility">Venue accessibility page</a>
+      </div>
+    </article>
+  </div>
+
+  <h2>Sample profiles</h2>
+  <p>These four profiles are invented examples showing how Codex Venue scores a room against the full eight-item checklist. They also appear in our <a href="venue-capacity.html">venue capacity guide</a> and <a href="venue-backline.html">venue backline guide</a>.</p>
   <div class="table-scroll">
     <table>
       <thead>
@@ -161,10 +236,9 @@
   </div>
   <p>Reserved accessible viewing areas reduce how many tickets a room can sell. Our <a href="venue-capacity.html">venue capacity guide</a> shows how to account for them when you set your ticket count.</p>
 
-  <h2>Venue details</h2>
   <div class="grid">
     <div class="card">
-      <span class="tag">8 of 8</span>
+      <span class="tag">Sample · 8 of 8</span>
       <h3>Riverbend Hall, Des Moines</h3>
       <p>A converted 1920s freight depot with a ramped main entrance and an elevator to the balcony bar.</p>
       <dl>
@@ -175,7 +249,7 @@
       </dl>
     </div>
     <div class="card">
-      <span class="tag">7 of 8</span>
+      <span class="tag">Sample · 7 of 8</span>
       <h3>North Platform, Minneapolis</h3>
       <p>A large modern room with wide aisles and an accessible seating section on a tiered riser.</p>
       <dl>
@@ -186,7 +260,7 @@
       </dl>
     </div>
     <div class="card">
-      <span class="tag">7 of 8</span>
+      <span class="tag">Sample · 7 of 8</span>
       <h3>The Ledgerline Room, Cedar Rapids</h3>
       <p>A single-level club with a zero-step entrance from the parking lot and a bar with a lowered counter section.</p>
       <dl>
@@ -197,7 +271,7 @@
       </dl>
     </div>
     <div class="card">
-      <span class="tag">6 of 8</span>
+      <span class="tag">Sample · 6 of 8</span>
       <h3>Copper Lantern, Madison</h3>
       <p>A restored theater that converts between seated and standing shows, with an accessible side entrance on Mifflin Street.</p>
       <dl>
@@ -210,7 +284,7 @@
   </div>
 
   <h2>Tips for buyers and promoters</h2>
-  <p>Put accessibility in your advance sheet, not just in your marketing. Ask the venue who receives accessibility requests on show day, list that person's name on the day sheet, and make sure your ticketing page explains how to request companion tickets. When an artist's audience skews toward fans who need accommodations, these details can decide whether people buy at all.</p>
+  <p>Put accessibility in your advance sheet, not just in your marketing. Ask the venue who receives accessibility requests on show day, list that person's name on the day sheet, and make sure your ticketing page explains how to request companion tickets, interpreters and captioning. The real venues above show how much easier booking becomes when a venue publishes seat locations and request policies in advance. When an artist's audience includes fans who need accommodations, these details can decide whether people buy at all.</p>
 </main>
 
 <footer>
@@ -229,4 +303,4 @@
 </footer>
 
 </body>
-</html>
+</html
